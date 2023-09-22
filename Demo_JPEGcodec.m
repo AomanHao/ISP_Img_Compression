@@ -1,3 +1,10 @@
+%% ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+% ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ www.aomanhao.top
+% Github https://github.com/AomanHao
+% CSDN https://blog.csdn.net/Aoman_Hao
+%--------------------------------------
+
+
 clear;
 close all;
 clc;
@@ -41,8 +48,8 @@ for i = 1:img_num
     compress_method = 'jepg';
     switch compress_method
         case 'jepg'
-            %% Í¼ÏñÑ¹Ëõ
-            conf.quality_scale = 0.5; % 0-1Ö®¼äµÄÑ¹Ëõ²ÎÊý
+            %% Í¼ï¿½ï¿½Ñ¹ï¿½ï¿½
+            conf.quality_scale = 0.5; % 0-1Ö®ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             im_idct = func_image_compress_JEPG(img_yuv,conf);
             
             %% yuv->rgb
@@ -51,10 +58,10 @@ for i = 1:img_num
             imwrite(rgb,strcat(conf.savepath,conf.imgname,'_',compress_method,'.jpg'),'jpg');
         case 'imwrite'
             
-            imwrite(img_in,strcat(conf.savepath,conf.imgname,'_',compress_method,'.jpg'),'jpg','quality',50);
+            imwrite(uint8(img_in),strcat(conf.savepath,conf.imgname,'_',compress_method,'.jpg'),'jpg','quality',50);
     end
     
-    %% ÇóÑ¹ËõÇ°ºóµÄÑ¹ËõÂÊ
+    %% ï¿½ï¿½Ñ¹ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½
     lite_info = imfinfo(strcat(conf.savepath,conf.imgname,'_',compress_method,'.jpg'));
     lite_size = lite_info.FileSize; % BYTE before
     re_info = imfinfo([pathname,img_name{i+2}]);
